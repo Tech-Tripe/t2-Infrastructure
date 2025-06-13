@@ -1,4 +1,4 @@
-resource "aws_vpc" "vpc-main" {
+resource "aws_vpc" "tech-tribe-vpc" {
   cidr_block       = var.vpc_cidrblock
   instance_tenancy = "default"
   enable_dns_support = true

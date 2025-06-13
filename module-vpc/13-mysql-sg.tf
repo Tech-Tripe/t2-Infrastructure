@@ -1,7 +1,7 @@
-resource "aws_security_group" "mysql_sg" {
-  name        = "${var.environment}-mysql-sg"
+resource "aws_security_group" "t2_mysql_sg" {
+  name        = "${var.environment}-t2_mysql_sg"
   description = "Security group for MySQL database"
-  vpc_id      = aws_vpc.vpc-main.id
+  vpc_id      = aws_vpc.tech-tribe-vpc.id
 
   ingress {
     from_port   = 3306

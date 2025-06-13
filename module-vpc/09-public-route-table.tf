@@ -1,6 +1,6 @@
 # get the default route table for the VPC
 data "aws_route_table" "default-route-table" {
-  vpc_id = aws_vpc.vpc-main.id
+  vpc_id = aws_vpc.tech-tribe-vpc.id
   filter {
     name   = "association.main"
     values = ["true"]
@@ -9,12 +9,12 @@ data "aws_route_table" "default-route-table" {
 # tag the default route table
 resource "aws_ec2_tag" "tag_default_route_table" {
   resource_id = data.aws_route_table.default-route-table.id
-  key         = "Name"
+  key         = "t2"
   value       = "${var.environment}-public-route-table"
 }
 # associate the default route table with the VPC
 resource "aws_main_route_table_association" "main" {
-  vpc_id         = aws_vpc.vpc-main.id
+  vpc_id         = aws_vpc.tech-tribe-vpc.id
   route_table_id = data.aws_route_table.default-route-table.id
 }
 # add a route to the default route table to allow internet access
