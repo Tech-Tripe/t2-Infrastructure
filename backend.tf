@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "digitalwitchngbucketcloud1"
-    key    = "digitalwitchng/prodution/terraform.tfstate"
+    bucket = "techtribe6bucketcloud1"
+    key    = "techtribe6/prodution/terraform.tfstate"
     region = "us-west-1"
   }
 }

@@ -11,10 +11,10 @@ spec:
   ingressClassName: external-nginx
   tls:
   - hosts:
-    - argocd.cloudwitches.online
-    secretName: argocd-cloudwitches-online
+    - argocd.techtribe6.online
+    secretName: argocd-techtribe6.online
   rules:
-  - host: argocd.cloudwitches.online
+  - host: argocd.techtribe6.online
     http:
       paths:
       - path: /
