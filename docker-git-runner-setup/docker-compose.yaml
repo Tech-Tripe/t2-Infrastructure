@@ -1,32 +1,20 @@
-#version: "3.8"
 
-#services:
- # github-runner:
-   # user: root
-   # build:
-     # context: .
-    #  dockerfile: Dockerfile
-    #image: docker-runner:latest
-    #container_name: github-runner
-    #restart: unless-stopped
-    #env_file:
-   #   - .env
-   # volumes:
-    #  - /var/run/docker.sock:/var/run/docker.sock
-    #  - runner-work:/home/runner/_work
-
-#volumes:
- # runner-work:
-
-  #version: "3"
+version: "3.8"
 
 services:
   github-runner:
-    image: myoung34/github-runner:latest
-    environment:
-      REPO_URL: ${ORG_OR_REPO}
-      RUNNER_TOKEN: ${ACCESS_TOKEN}
-      RUNNER_NAME: ${RUNNER_NAME}
-      RUNNER_WORKDIR: ${RUNNER_WORKDIR}
+    user: root
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: docker-runner:latest
+    container_name: github-runner
+    restart: unless-stopped
+    env_file:
+      - .env
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - runner-work:/home/runner/_work
+
+volumes:
+  runner-work:
